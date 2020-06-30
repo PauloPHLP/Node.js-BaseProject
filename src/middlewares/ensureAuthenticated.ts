@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { verify } from 'jsonwebtoken';
 import authConfig from '../config/auth';
+import AppError from '../errors/AppError';
 
 interface TokenPayload {
   iat: number;
@@ -11,11 +12,11 @@ interface TokenPayload {
 export default function ensureAuthentication(
   request: Request,
   response: Response,
-  next: NextFunction
+  next: NextFunction,
 ): void {
   const authHeader = request.headers.authorization;
 
-  if (!authHeader) throw new Error('Invalid authorization token.');
+  if (!authHeader) throw new AppError('Invalid authorization token.', 401);
 
   const [, token] = authHeader.split(' ');
 
@@ -28,7 +29,7 @@ export default function ensureAuthentication(
     };
 
     return next();
-  } catch(err) {
-    throw new Error('Invalid authorization token.');
+  } catch (err) {
+    throw new AppError('Invalid authorization token.', 401);
   }
-};
+}
