@@ -1,13 +1,18 @@
-# 🖥️ Go Barber
+# 🖥️ Node.js Base Project
 
 <h1 align="center">
-  <img alt="Node.js" src=".github/logo.png" width="200px" />
+  <img src=".github/logo.png" width="200px" />
 </h1>
 
 ## 🔎️ Description
-Back-end side of GoBarber project.
+Node.js base application with default configurations to be used as a faster start for new projects.
 
-This project was made during the <a href="https://rocketseat.com.br/gostack">GoStack Boot Camp</a> in 2020.
+## 👀️ Settings made in this base project:
+
+- .editorconfig
+- ESLint
+- Prettier
+- Folders structure
 
 ## 🚀️ Technologies
 
